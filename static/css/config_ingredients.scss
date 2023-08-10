@@ -7,8 +7,8 @@ $light-gray: #C9C5C2;
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    svg {
-        fill: $orange;
+    button {
+        width: 100px;
         height: 40px;
     }
     input {
@@ -49,6 +49,9 @@ $light-gray: #C9C5C2;
         fill: $light-orange;
         margin-left: 20px;
         } 
+    p {
+        margin-right: 15px;
+    }
     }
     
 }

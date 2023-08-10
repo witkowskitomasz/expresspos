@@ -19,17 +19,19 @@ class Groups {
         })
     }
     getAllGroups() {
-        const groups = []
         return new Promise((resolve,reject) => {
+            const groups = []
+            
             db.all('SELECT name FROM ing_groups', (err, rows) => {
-                resolve(rows)
+                if (err) {
+                    reject(err)
+                } else {
+                    rows.forEach(element => {
+                        groups.push(element.name)
+                    })
+                    resolve(groups)
+                }
             })
-        }).then(res => {
-            res.forEach(element => {
-                groups.push(element.name)
-            })
-        }).then(() => {
-            return groups 
         })
     }
 }
@@ -42,17 +44,19 @@ class Ingredients {
         db.run(`DELETE FROM ing_${group} WHERE name = ?`, [name])
     }
     getAllIngredients(group) {
-        const ingredients = []
         return new Promise((resolve, reject) => {
+            const ingredients = []
+            
             db.all(`SELECT name FROM ing_${group}`, (err, rows) => {
-                resolve(rows)
+                if (err) {
+                    reject(err)
+                } else {
+                    rows.forEach(element => {
+                        ingredients.push(element.name)
+                    })
+                    resolve(ingredients)
+                }
             })
-        }).then(res => {
-            res.forEach(element => {
-                ingredients.push(element.name)
-            })
-        }).then(() => {
-            return ingredients 
         })
     }
 }
