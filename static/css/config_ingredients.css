@@ -3,8 +3,8 @@
   justify-content: center;
   margin-top: 20px;
 }
-.add-group svg {
-  fill: #FF6600;
+.add-group button {
+  width: 100px;
   height: 40px;
 }
 .add-group input {
@@ -45,4 +45,7 @@
   height: 20px;
   fill: #FF9230;
   margin-left: 20px;
-}/*# sourceMappingURL=config-ingredients.css.map */
+}
+.show-group .li p {
+  margin-right: 15px;
+}/*# sourceMappingURL=config_ingredients.css.map */
