@@ -1,3 +1,6 @@
+const Keyboard = window.SimpleKeyboard.default;
+const keyboardContainer = document.querySelector('.simple-keyboard')
+
 const addBtn = document.querySelector('#add-btn')
 const groupInput = document.querySelector('#group')
 const groupTable = document.querySelector('.group-table')
@@ -86,3 +89,40 @@ groupInput.addEventListener('keydown', (e) => {
         addGroup()
     }
 })
+
+
+//keyboard
+let myKeyboard = null
+
+groupInput.addEventListener('focus', () => {
+    if (myKeyboard === null) {
+    
+        myKeyboard = new Keyboard({
+            onChange: input => onChange(input),
+            onKeyPress: button => onKeyPress(button)
+        })
+    
+        function onChange(input) {
+            groupInput.value = input;
+            console.log("Input changed", input);
+        }
+    
+        function onKeyPress(button) {
+            if (button === '{enter}') {
+                myKeyboard.destroy()
+                myKeyboard = null
+                addGroup()
+            }
+        }
+    }
+})
+
+document.addEventListener('click', (e) => {
+    if (!keyboardContainer.contains(e.target) && e.target !== groupInput) {
+        if (myKeyboard) {
+            myKeyboard.destroy();
+            myKeyboard = null;
+        }
+    }
+})
+//end
