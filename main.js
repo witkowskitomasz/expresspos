@@ -4,15 +4,15 @@ const { Groups, Ingredients } = require('./src/db')
 const { dir } = require('console')
 
 
-function createWindow () {
+function createMainWindow () {
     const startAndConfigWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
+        width: 1400,
+        height: 900,
         webPreferences: {
             preload: path.join(__dirname, 'configPreload.js')
         }
     })
-    startAndConfigWindow.loadFile('./views/config_ingredients.html')
+    startAndConfigWindow.loadFile('./views/index.html')
 }
 
 // Group ops listners
@@ -39,7 +39,7 @@ ipcMain.on ('removeGroup', (e, args) => {
 // End
 
 app.whenReady().then(() => {
-    createWindow()
+    createMainWindow()
 
     app.on('activate', () => {
         if (BrowserWindow.getAllWindows().length === 0) {

@@ -5,22 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/css/main.css">
     <link rel="stylesheet" href="../static/css/config_ingredients.css">
+    <link rel="stylesheet" href="../src/simple-keyboard/build/css/index.css">
     <title>Konfiguracja - składniki</title>
 </head>
 <body>
+    <div class="nav">
+        <button class="groups-nav">Grupy</button>
+        <button class="ingredients-nav">Składniki</button>
+    </div>
+    
+    
+    
+    
+    
+    
     <div class="groups">
         <div class="add-group">
             <input name="group" id="group" type="text" placeholder="Dodaj nową grupę">
-            <button id="add-btn">Add</button>
+            <button id="add-btn">Dodaj</button>
         </div>
         <div class="info-group">
             <p>#</p>
         </div>
         <div class="show-group">
-            <ul id="group-list">
-            </ul>
+            <table class="group-table">
+                
+            </table>
         </div>
     </div>
+
+    <div class="ingredients">
+        test
+    </div>
+
+    <div class="simple-keyboard"></div>
+    <script src="../src/simple-keyboard/build/index.js"></script>
     <script src="../static/js/config_ingredients.js"></script>
 </body>
 </html>

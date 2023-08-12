@@ -3,13 +3,69 @@ $light-orange: #FF9230;
 $gray: #4D4A4C;
 $light-gray: #C9C5C2;
 
+.groups {
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    position: absolute;
+    width: 100%;
+}
+
+.ingredients {
+    transform: translateX(100%);
+    transition: transform 0.5s;
+    position: absolute;
+    width: 100%;
+}
+
+.show {
+    transform: translateX(0);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+    button {
+        all: unset;
+        text-align: center;
+        background-color: $light-orange;
+        border-radius: 5px;
+        height: 50px;
+        font-size: 20px;
+    }
+    .groups-nav {
+        width: 45%;
+        transition: width 0.2s ease;
+    }
+    .ingredients-nav {
+        width: 45%;
+        transition: width 0.2s ease; 
+    }
+    .selected-btn {
+        width: 70%;
+        background-color: $orange;
+        font-weight: 700;
+    }
+    .unselected-btn {
+        width: 20%;
+    }
+}
+
 .add-group {
     display: flex;
     justify-content: center;
+    align-items: center;
     margin-top: 20px;
     button {
+        all: unset;
         width: 100px;
         height: 40px;
+        background-color: #FF9230;
+        text-align: center;
+        font-weight: 700;
+        border-radius: 5px;
     }
     input {
     all: unset;
@@ -33,27 +89,30 @@ $light-gray: #C9C5C2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    ul {
-        list-style-type: none;
+    margin-bottom: 20px;
+    table {
+        font-size: 24px;
+        border-spacing: 10px;
+        button {
+            all: unset;
+            background-color: #FF9230;
+            display: block;
+            height: 25px;
+            width: 100px;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        tr, td {
+            text-align: center;
+            vertical-align: middle;
+        }
     }
-    li {
-        margin-bottom: 10px;
-    }
-    .li {
-        display: flex;
-        align-items: center;
-        font-size: 20px;
-        font-weight: 700;
-        svg {
-        height: 20px;
-        fill: $light-orange;
-        margin-left: 20px;
-        } 
-    p {
-        margin-right: 15px;
-    }
-    }
-    
+}
+
+.simple-keyboard {
+    position: fixed;
+    bottom: 0;
+    z-index: 10;
 }
 
 
