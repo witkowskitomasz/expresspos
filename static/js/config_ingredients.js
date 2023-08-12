@@ -1,6 +1,6 @@
-const groupList = document.querySelector('#group-list')
 const addBtn = document.querySelector('#add-btn')
 const groupInput = document.querySelector('#group')
+const groupTable = document.querySelector('.group-table')
 
 const groupNavBtn = document.querySelector('.groups-nav')
 const ingredientsNavBtn = document.querySelector('.ingredients-nav')
@@ -39,19 +39,16 @@ const showIngredientsWindow = () => {
 
 //Group ops
 const createGroupListElement = (name) => {
-    const li = document.createElement('li')
-    const div = document.createElement('div')
-    div.classList.add('li')
-    const p = document.createElement('p')
-    const button = document.createElement('button')
+    const row = document.createElement('tr')
+    const nameTd = document.createElement('td')
+    nameTd.innerHTML = name
+    const btnsTd = document.createElement('td')
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerHTML = 'Usuń'
 
-    p.textContent = name
-    button.innerText = 'Usuń'
-
-    div.append(p)
-    div.append(button)
-    li.append(div)
-    groupList.append(li)
+    btnsTd.append(deleteBtn)
+    row.append(nameTd, btnsTd)
+    groupTable.append(row)
 }
 
 const createGroupList = async () => {
@@ -63,15 +60,15 @@ const createGroupList = async () => {
 
 const removeGroup = (e) => {
     if (e.target.tagName === 'BUTTON') {
-    myAPI.removeGroup(e.target.previousSibling.textContent)
-    e.target.parentNode.remove()
+    myAPI.removeGroup(e.target.closest('tr').firstChild.innerHTML)
+    e.target.closest('tr').remove()
     }
 }
 
 const addGroup = () => {
     myAPI.addGroup(groupInput.value)  
     groupInput.value = ''
-    groupList.innerHTML = ''
+    groupTable.innerHTML = ''
     setTimeout(() => {
         createGroupList()
     }, 200)
@@ -82,7 +79,7 @@ groupNavBtn.addEventListener('click', () => showGroupWindow())
 ingredientsNavBtn.addEventListener('click', () => showIngredientsWindow())
 
 document.addEventListener('DOMContentLoaded', createGroupList())
-groupList.addEventListener('click', (e) => removeGroup(e))
+groupTable.addEventListener('click', (e) => removeGroup(e))
 addBtn.addEventListener('click', () => addGroup())
 groupInput.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
