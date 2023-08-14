@@ -14,11 +14,6 @@
         <button class="ingredients-nav">Składniki</button>
     </div>
     
-    
-    
-    
-    
-    
     <div class="groups">
         <div class="add-group">
             <input name="group" id="group" type="text" placeholder="Dodaj nową grupę">
@@ -35,7 +30,27 @@
     </div>
 
     <div class="ingredients">
-        test
+        <div class="add-ingredient">
+            <div class="add-ingredient-select">
+                <select name="groups-dropdown" id="groups-dropdown" placeholder>
+                <option disabled selected value="">Wybierz grupę</option>
+                <option value="">warzywa</option>
+                <option value="owoce">owoce</option>
+                </select>
+            </div>
+            <div class="add-ingredients-input">
+                <input name="ingredients" id="ingredients" type="text" placeholder="Dodaj nowy składnik">
+                <button id="add-ingredient-btn">Dodaj</button>
+            </div>
+        </div>
+        <div class="info-ingredient">
+            <p>#</p>
+        </div>
+        <div class="show-ingredient">
+            <table class="ingredients-tabale">
+
+            </table>
+        </div>
     </div>
 
     <div class="simple-keyboard"></div>

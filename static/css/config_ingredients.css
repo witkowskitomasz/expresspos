@@ -104,6 +104,34 @@
   vertical-align: middle;
 }
 
+.add-ingredient select {
+  width: 40%;
+  height: 45px;
+  border-radius: 5px;
+  font-size: 24px;
+  text-align: center;
+  margin: 20px 0 20px 0;
+}
+.add-ingredient button {
+  all: unset;
+  width: 100px;
+  height: 40px;
+  background-color: #FF9230;
+  text-align: center;
+  font-weight: 700;
+  border-radius: 5px;
+}
+.add-ingredient input {
+  all: unset;
+  width: 50%;
+  height: 45px;
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 15px;
+  font-size: 24px;
+  padding-left: 10px;
+}
+
 .simple-keyboard {
   position: fixed;
   bottom: 0;
